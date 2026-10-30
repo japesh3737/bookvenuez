@@ -1,0 +1,28 @@
+# Installed dependencies and generated builds
+node_modules/
+dist/
+.vite/
+
+# Local credentials and environment settings
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Temporary verification output and local tools
+artifacts/
+public/verify*.png
+public/test_now.png
+test_eval.mjs
+*.log
+*.tsbuildinfo
+__pycache__/
+.agents/
+.codex/
+
+# Editor and operating-system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/

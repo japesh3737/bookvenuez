@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Fit the supplied torn poster to Bookvenuez's longer wordmark. */
+.bookvenuez-footer .tpf-word { font-family: Georgia, serif; font-size: min(8cqw, 88px); }
+.bookvenuez-footer .tpf-eye { font-size: clamp(10px, 1.4cqw, 16px); }
+.bookvenuez-footer .tpf-brand-top { gap: .5em; }
+.bookvenuez-footer .tpf-brand { max-width: 88%; }
+.bookvenuez-footer .tpf-flank { font-size: 10px; }
+@media (max-width: 620px) {
+  .bookvenuez-footer .tpf-logo { font-size: 16px; }
+  .bookvenuez-footer .tpf-col { font-size: 12px; }
+  .bookvenuez-footer .tpf-col { top: 32.5%; }
+  .bookvenuez-footer .tpf-status { top: 24%; }
+  .bookvenuez-footer .tpf-badge { top: 28%; }
+  .bookvenuez-footer .tpf-col li:nth-child(n+3) { display: list-item; }
+  .bookvenuez-footer .tpf-foot { font-size: 10px; }
+  .bookvenuez-footer .tpf-credit { font-size: 8px; }
+  .bookvenuez-footer .tpf-brand-top { justify-content: center; }
+  .bookvenuez-footer .tpf-bub { display: none; }
+}
+
+@layer base {
+  :root {
+    /* ── Mandatory 5-Color Design System ── */
+    --color-bg-ivory: #FAF8F5;
+    --color-surface-white: #FFFFFF;
+    --color-brand-forest: #1E4D3B;
+    --color-brand-forest-hover: #163A2C;
+    --color-brand-forest-active: #102B20;
+    --color-brand-forest-tint: rgba(30, 77, 59, 0.08);
+    --color-brand-forest-ring: rgba(30, 77, 59, 0.35);
+
+    --color-text-obsidian: #181D1A;
+    --color-text-obsidian-secondary: rgba(24, 29, 26, 0.68);
+    --color-text-obsidian-muted: rgba(24, 29, 26, 0.52);
+    --color-border-hairline: rgba(24, 29, 26, 0.10);
+
+    --color-accent-terracotta: #C86D51;
+    --color-accent-terracotta-tint: rgba(200, 109, 81, 0.14);
+    --color-accent-terracotta-text: #9E4B32;
+
+    --color-surface-sand: #EFECE6;
+    --color-border-sand: #DED8CE;
+
+    /* ── Shadcn Theme Mapping ── */
+    --background: 40 25% 97.5%;     /* #FAF8F5 Warm Ivory */
+    --foreground: 150 9% 10%;       /* #181D1A Structural Obsidian */
+    --card: 0 0% 100%;             /* #FFFFFF Pure White Surface */
+    --card-foreground: 150 9% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 150 9% 10%;
+    --primary-hsl: 157 44% 21%;    /* #1E4D3B Forest Green */
+    --primary-foreground: 40 25% 97.5%;
+    --secondary: 40 14% 92%;       /* #EFECE6 Surface Sand */
+    --secondary-foreground: 150 9% 10%;
+    --muted: 40 14% 92%;
+    --muted-foreground: 150 5% 42%;
+    --accent: 14 52% 55%;          /* #C86D51 Terracotta */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 20% 98%;
+    --border: 38 18% 84%;          /* #DED8CE Border Sand */
+    --input: 38 18% 84%;
+    --ring: 157 44% 21%;
+    --radius: 0.75rem;
+
+    --brand-forest: #1E4D3B;
+    --brand-forest-hover: #163A2C;
+    --brand-charcoal: #181D1A;
+    --brand-ivory: #FAF8F5;
+    --brand-border: #DED8CE;
+    --brand-slate: rgba(24, 29, 26, 0.68);
+    --brand-terracotta: #C86D51;
+    --brand-sand: #EFECE6;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    background-color: #FAF8F5;
+    color: #181D1A;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #FAF8F5;
+}
+::-webkit-scrollbar-thumb {
+  background: #DED8CE;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C4BDAF;
+}
+
+/* Utility hide scrollbar */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+button:focus-visible, a:focus-visible { outline: 2px solid #1e4d3b; outline-offset: 4px; }
+
+
+/* Captions share each photograph's sliced surface so they follow its curve. */
+.tgh-caption { position: absolute; inset: 0; display: flex; flex-direction: column; justify-content: flex-end; gap: 4px; padding: clamp(10px, 1.6cqw, 22px); background: linear-gradient(transparent 30%, rgba(9, 24, 18, .2) 50%, rgba(9, 24, 18, .88) 100%); color: #fff; }
+.tgh-caption-title { font-family: 'Playfair Display', Georgia, serif; font-size: clamp(13px, 1.6cqw, 21px); font-weight: 600; line-height: 1.25; text-wrap: balance; text-shadow: 0 1px 3px rgba(0,0,0,.35); }
+.tgh-caption-location { font-size: clamp(10px, 1cqw, 13px); line-height: 1.35; font-weight: 500; color: #fff; }
+@media(max-width:639px) { .tgh-caption { gap: 3px; } }

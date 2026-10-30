@@ -1,0 +1,12 @@
+import assert from 'node:assert/strict';
+import { build } from 'esbuild';
+const {outputFiles}=await build({entryPoints:['src/data/venuePlanning.ts'],bundle:true,format:'esm',platform:'node',write:false});
+const {bestVenueIds,capacityValue}=await import(`data:text/javascript;base64,${Buffer.from(outputFiles[0].text).toString('base64')}`);
+const venues=[{id:13,perPlatePriceNumeric:450,maxGuests:500},{id:30,perPlatePriceNumeric:450,maxGuests:900},{id:18,perPlatePriceNumeric:2200,maxGuests:1000}];
+assert.deepEqual(bestVenueIds(venues,'price'),[13,30], 'All tied lowest prices should be highlighted');
+assert.deepEqual(bestVenueIds(venues,'capacity'),[30], 'Kitchen capacity must not be ranked as event capacity');
+assert.deepEqual(bestVenueIds([venues[0]],'price'),[], 'No winner with a single selection');
+assert.deepEqual(bestVenueIds([{...venues[0],perPlatePriceNumeric:NaN},venues[1]],'price'),[], 'Invalid metrics must not become winners');
+assert.equal(capacityValue({id:20,maxGuests:1200}),400, 'Use the researched banquet capacity instead of the demo capacity');
+assert.equal(capacityValue(venues[2]),undefined);
+console.log('Passed: tied prices, capacity eligibility, single selection, invalid metrics, researched capacity.');

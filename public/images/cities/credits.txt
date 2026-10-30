@@ -1,0 +1,12 @@
+City imagery for Explore by city
+
+Mumbai, Bangalore, Pune, Goa, Delhi NCR, Lonavala, Karjat and Igatpuri:
+Optimized local versions of the corresponding image URLs already supplied in
+src/data/locationsData.ts. Other sections continue using the original data.
+
+Gurugram: Vishal Kumar / Unsplash
+https://unsplash.com/photos/iFDByklLsdE
+https://images.unsplash.com/photo-1688139885160-bb49f176ae2e
+Unsplash License: https://unsplash.com/license
+The existing Gurugram source showed a Delhi monument; this section uses a
+photograph of DLF Cyber City in Gurugram instead.
